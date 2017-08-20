@@ -1,0 +1,15 @@
+{
+  "name": "lunch-tyme",
+  "version": "0.1.0",
+  "description": "The Lunch Tyme customer facing application.",
+  "keywords": [
+    "react"
+  ],
+  "author": "Richard Harrington",
+  "bugs": {
+    "url": "https://github.com/FuzzySockets/lunch-tyme/issues"
+  },
+  "devDependencies": {
+    "webpack": "^3.5.5"
+  }
+}
