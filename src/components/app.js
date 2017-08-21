@@ -1,12 +1,13 @@
 import _ from 'lodash';
 import React from 'react';
-import request from 'superagent';
 import * as actionCreators from '../redux/actionCreators/actionCreators';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { WrapperContainer } from './wrapper/wrapper';
 import { render } from 'react-dom';
 import rootReducer from '../redux/reducers/rootReducer';
+import { ROOT_ID } from '../config/constants';
+import { getRestaurants } from '../api/restaurants';
 import '../styles/global.less';
 import {
   Route,
@@ -15,14 +16,11 @@ import {
 
 async function initialize() {
 
-  let url = `http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json`;
-  let { body } = await request.get(url)
+  let restaurants = await getRestaurants();
   let store = createStore(rootReducer);
 
   store.dispatch(actionCreators.setInitialState({
-    site: {
-      restaurants: body.restaurants 
-    }
+    site: { restaurants }
   }));
 
   const App = () => (
@@ -35,10 +33,10 @@ async function initialize() {
     </Provider>
    );
 
-  var root = document.createElement('div');
-  root.id = 'root';
+  let root = document.createElement('div');
+  root.id = ROOT_ID;
   document.body.appendChild(root);
-  render(<App/>, document.getElementById('root'));
+  render(<App/>, document.getElementById(ROOT_ID));
 }
 
 initialize();
