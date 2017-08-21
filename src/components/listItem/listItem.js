@@ -1,4 +1,5 @@
 import React from 'react';
+import './listItem.less';
 
 export const ListItem = props => (
   <div onClick={props.onClick} className="listItem">
