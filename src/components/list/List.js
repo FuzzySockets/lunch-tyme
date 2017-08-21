@@ -32,13 +32,8 @@ export class List extends React.Component {
   }
 }
 
-const mapDispatch = {
-  ...actionCreators
-};
-
-const mapState = state => ({
-  restaurants: state.site.toJS().restaurants
-});
+const mapDispatch = actionCreators;
+const mapState = state => state.site.toJS();
 
 export const ListContainer = connect(
   mapState, 

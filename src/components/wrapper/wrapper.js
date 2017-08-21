@@ -29,13 +29,8 @@ export class Wrapper extends React.Component {
   }
 }
 
-const mapDispatch = {
-  ...actionCreators
-};
-
-const mapState = state => ({
-  detailsVisible: state.site.toJS().detailsVisible
-});
+const mapDispatch = actionCreators;
+const mapState = state => state.site.toJS();
 
 export const WrapperContainer = connect(
   mapState, 

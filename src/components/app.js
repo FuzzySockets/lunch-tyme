@@ -16,7 +16,7 @@ const mountRoot = (App) => {
   render(<App/>, document.getElementById(ROOT_ID));
 }
 
-async function initialize() {
+const initialize = async () => {
 
   let store = initializeStore(await getRestaurants());
 
@@ -28,9 +28,9 @@ async function initialize() {
         </div>
       </Router>
     </Provider>
-   );
+  );
   
-   mountRoot(App);
+  mountRoot(App);
 }
 
 initialize();

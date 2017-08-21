@@ -4,13 +4,12 @@ import * as actionTypes from '../actionTypeConstants';
 
 const DETAILS_VISIBLE_FLAG = 'detailsVisible';
 
-function getInitialState(site = {}) {
-  return fromJS({
+const getInitialState = (site = {}) =>
+  fromJS({
     restaurant: site.restaurants[0],
     restaurants: site.restaurants,
     [DETAILS_VISIBLE_FLAG]: false
-  });
-} 
+  })
 
 export default function siteReducer(state = Map(), action) {
 

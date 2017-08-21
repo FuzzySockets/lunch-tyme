@@ -1,10 +1,5 @@
 import React from 'react';
-
-import { 
-  Marker,
-  GoogleMap, 
-  withGoogleMap
-} from "react-google-maps";
+import { Marker, GoogleMap, withGoogleMap } from "react-google-maps";
 
 export const MapWidget = withGoogleMap(props => (
   <GoogleMap
@@ -15,9 +10,7 @@ export const MapWidget = withGoogleMap(props => (
     onClick={props.onMapClick}>
 
     {props.markers.map((marker, i) => (
-      <Marker
-        key={i}
-        {...marker}/>
+      <Marker key={i} {...marker}/>
     ))}
 
   </GoogleMap>
