@@ -22,7 +22,7 @@ export default function siteReducer(state = Map(), action) {
       return getInitialState(payload.site);
 
     case actionTypes.SET_ACTIVE_RESTAURANT:
-      return state.set('activeRestaurant', payload);
+      return state.set('restaurant', payload);
 
     case actionTypes.TOGGLE_DETAILS:
       return state.set(
