@@ -4,7 +4,7 @@ import * as actionTypes from '../actionTypeConstants';
 
 function getInitialState(site = {}) {
   return fromJS({
-    activeRestaurant: site.restaurants[0],
+    restaurant: site.restaurants[0],
     restaurants: site.restaurants,
     detailsVisible: false
   });

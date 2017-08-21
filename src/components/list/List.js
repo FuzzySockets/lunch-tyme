@@ -1,17 +1,8 @@
 import * as actionCreators from '../../redux/actionCreators/actionCreators';
 import React from 'react';
+import { ListItem } from '../listItem/listItem';
 import { connect } from 'react-redux';
 import './list.less';
-
-const ListItem = props => (
-  <div onClick={props.onClick} className="listItem">
-    <img src={props.backgroundImageURL}/>
-    <div className="details">
-      <h1>{props.name}</h1>
-      <h2>{props.category}</h2>
-    </div>
-  </div>
-)
 
 export class List extends React.Component {
 
@@ -37,7 +28,7 @@ export class List extends React.Component {
           ))
         }
       </div>
-    )
+    );
   }
 }
 
@@ -49,4 +40,7 @@ const mapState = state => ({
   restaurants: state.site.toJS().restaurants
 });
 
-export const ListContainer = connect(mapState, mapDispatch)(List);
+export const ListContainer = connect(
+  mapState, 
+  mapDispatch
+)(List);
