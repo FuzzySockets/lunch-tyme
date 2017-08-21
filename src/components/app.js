@@ -1,27 +1,24 @@
 import _ from 'lodash';
 import React from 'react';
-import * as actionCreators from '../redux/actionCreators/actionCreators';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { WrapperContainer } from './wrapper/wrapper';
 import { render } from 'react-dom';
-import rootReducer from '../redux/reducers/rootReducer';
 import { ROOT_ID } from '../config/constants';
 import { getRestaurants } from '../api/restaurants';
+import { initializeStore } from '../redux/initializeStore';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import '../styles/global.less';
-import {
-  Route,
-  BrowserRouter as Router
-} from 'react-router-dom';
+
+const mountRoot = (App) => {
+  let root = document.createElement('div');
+  root.id = ROOT_ID;
+  document.body.appendChild(root);
+  render(<App/>, document.getElementById(ROOT_ID));
+}
 
 async function initialize() {
 
-  let restaurants = await getRestaurants();
-  let store = createStore(rootReducer);
-
-  store.dispatch(actionCreators.setInitialState({
-    site: { restaurants }
-  }));
+  let store = initializeStore(await getRestaurants());
 
   const App = () => (
     <Provider store={store}>
@@ -32,12 +29,8 @@ async function initialize() {
       </Router>
     </Provider>
    );
-
-  let root = document.createElement('div');
-  root.id = ROOT_ID;
-  document.body.appendChild(root);
-  render(<App/>, document.getElementById(ROOT_ID));
+  
+   mountRoot(App);
 }
 
 initialize();
-
