@@ -35,6 +35,7 @@ export class Detail extends React.Component {
           <InfoBand {...restaurant}/>
 
           <ContactInfo
+            formattedPhone={formattedPhone}
             address={address}
             city={city}
             state={state}
