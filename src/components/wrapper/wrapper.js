@@ -23,6 +23,7 @@ export class Wrapper extends React.Component {
 
         <DetailContainer/>
         <ListContainer/>
+
       </div>
     );
   }
@@ -36,4 +37,7 @@ const mapState = state => ({
   detailsVisible: state.site.toJS().detailsVisible
 });
 
-export const WrapperContainer = connect(mapState, mapDispatch)(Wrapper);
+export const WrapperContainer = connect(
+  mapState, 
+  mapDispatch
+)(Wrapper);
