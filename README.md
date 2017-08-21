@@ -5,5 +5,5 @@ restaurants with a detailed view of information and location.
 
 ### Start Development Server and Open Application
 ---
-  $ npm install
-  $ npm run start
+    $ npm install
+    $ npm run start
