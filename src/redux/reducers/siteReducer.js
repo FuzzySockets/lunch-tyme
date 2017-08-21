@@ -2,11 +2,13 @@ import _ from 'lodash';
 import { Map, fromJS } from 'immutable';
 import * as actionTypes from '../actionTypeConstants'; 
 
+const DETAILS_VISIBLE_FLAG = 'detailsVisible';
+
 function getInitialState(site = {}) {
   return fromJS({
     restaurant: site.restaurants[0],
     restaurants: site.restaurants,
-    detailsVisible: false
+    [DETAILS_VISIBLE_FLAG]: false
   });
 } 
 
@@ -23,7 +25,10 @@ export default function siteReducer(state = Map(), action) {
       return state.set('activeRestaurant', payload);
 
     case actionTypes.TOGGLE_DETAILS:
-      return state.set('detailsVisible', !state.get('detailsVisible'));
+      return state.set(
+        DETAILS_VISIBLE_FLAG, 
+        !state.get(DETAILS_VISIBLE_FLAG)
+      );
 
     default:
       return state;
