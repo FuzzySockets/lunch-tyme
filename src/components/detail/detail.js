@@ -4,8 +4,8 @@ import React from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { MapWidget } from '../mapWidget/mapWidget';
+import { InfoBand } from '../infoBand/infoBand';
 import './detail.less';
-
 
 export class Detail extends React.Component {
 
@@ -31,10 +31,7 @@ export class Detail extends React.Component {
             center={{ lat, lng }}
             markers={[{ position: { lat, lng } }]}/>
 
-          <div className="infoBand">
-            <h1>{restaurant.name}</h1>
-            <h2>{restaurant.category}</h2>
-          </div>
+          <InfoBand {...restaurant}/>
 
           <div className="businessDetails">
             <p>{address}<br/>{city} {state}, {postalCode}</p>
