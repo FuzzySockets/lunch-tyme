@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { MapWidget } from '../mapWidget/mapWidget';
 import { InfoBand } from '../infoBand/infoBand';
+import { ContactInfo } from '../contactInfo/contactInfo';
 import './detail.less';
 
 export class Detail extends React.Component {
@@ -33,11 +34,12 @@ export class Detail extends React.Component {
 
           <InfoBand {...restaurant}/>
 
-          <div className="businessDetails">
-            <p>{address}<br/>{city} {state}, {postalCode}</p>
-            <p>{formattedPhone}</p>
-            {twitter && ( <p>@{twitter}</p> )}
-          </div>
+          <ContactInfo
+            address={address}
+            city={city}
+            state={state}
+            postalCode={postalCode}
+            twitter={twitter}/>
 
         </div>
       </div>
