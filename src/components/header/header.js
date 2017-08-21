@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import classNames from 'classnames';
 import backArrow from '../../../assets/backArrow.png';
 import './header.less';
