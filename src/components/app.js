@@ -3,10 +3,10 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { WrapperContainer } from './wrapper/wrapper';
 import { render } from 'react-dom';
-import { ROOT_ID } from '../config/constants';
 import { getRestaurants } from '../api/restaurants';
 import { initializeStore } from '../redux/initializeStore';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { ROOT_ID, HOME_PATH } from '../config/constants';
 import '../styles/global.less';
 
 const mountRoot = (App) => {
@@ -24,7 +24,7 @@ async function initialize() {
     <Provider store={store}>
       <Router>
         <div>
-          <Route exact path="/" component={WrapperContainer}/>
+          <Route exact path={HOME_PATH} component={WrapperContainer}/>
         </div>
       </Router>
     </Provider>
